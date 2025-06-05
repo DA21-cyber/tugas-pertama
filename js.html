@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Online Sederhana</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+
+        #product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .product-card h3 {
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+
+        .product-card p {
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .product-card .price {
+            font-weight: bold;
+            color: #007bff;
+            margin-top: 10px;
+        }
+
+        #filter-container {
+            margin-bottom: 20px;
+        }
+
+        #filter-container label {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Produk Kami</h1>
+
+    <div id="filter-container">
+        <label for="category-filter">Filter Kategori:</label>
+        <select id="category-filter">
+            <option value="all">Semua Kategori</option>
+        </select>
+    </div>
+
+    <div id="product-list">
+    </div>
+
+    <script>
+        // a. Buat array data produk
+        const products = [
+            {
+                id: 1,
+                name: "T-Shirt Kasual",
+                price: 120000,
+                description: "T-shirt nyaman untuk kegiatan sehari-hari.",
+                image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                category: "Pakaian"
+            },
+            {
+                id: 2,
+                name: "Celana Jeans Slim Fit",
+                price: 280000,
+                description: "Jeans modern dengan potongan slim fit.",
+                image: "https://images.unsplash.com/photo-1715758890375-3a6c8ac2e640?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                category: "Pakaian"
+            },
+            {
+                id: 3,
+                name: "Sepatu Lari Sporty",
+                price: 450000,
+                description: "Sepatu ringan dan nyaman untuk lari.",
+                image: "https://images.unsplash.com/photo-1625210235966-4c5e0190ea77?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                category: "Sepatu"
+            },
+            {
+                id: 4,
+                name: "Jam Tangan Klasik",
+                price: 320000,
+                description: "Jam tangan elegan dengan desain minimalis.",
+                image: "https://images.unsplash.com/photo-1603035944709-d8b69bae588a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                category: "Aksesoris"
+            },
+            {
+                id: 5,
+                name: "Tas Ransel Laptop",
+                price: 180000,
+                description: "Ransel luas untuk laptop dan kebutuhan harian.",
+                image: "https://images.unsplash.com/photo-1621609764049-5ee1db3d7c35?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                category: "Aksesoris"
+            },
+            {
+                id: 6,
+                name: "Headphone Nirkabel",
+                price: 600000,
+                description: "Headphone dengan suara jernih dan koneksi nirkabel.",
+                image: "https://images.unsplash.com/photo-1491927570842-0261e477d937?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                category: "Elektronik"
+            },
+            {
+                id: 7,
+                name: "Buku Fiksi Fantasi",
+                price: 95000,
+                description: "Petualangan epik di dunia fantasi.",
+                image: "https://images.unsplash.com/photo-1706932527793-aba6d47814af?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                category: "Buku"
+            },
+            {
+                id: 8,
+                name: "Smartwatch Canggih",
+                price: 750000,
+                description: "Jam tangan pintar dengan berbagai fitur kesehatan.",
+                image: "https://images.unsplash.com/photo-1654208398202-1edef1cf23b5?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                category: "Elektronik"
+            }
+        ];
+
+        const productListDiv = document.getElementById('product-list');
+        const categoryFilterSelect = document.getElementById('category-filter');
+
+        // Fungsi untuk menampilkan produk
+        function displayProducts(productsToDisplay) {
+            productListDiv.innerHTML = ''; // Kosongkan daftar produk sebelum menampilkan yang baru
+
+            if (productsToDisplay.length === 0) {
+                productListDiv.innerHTML = '<p>Tidak ada produk yang cocok dengan filter.</p>';
+                return;
+            }
+
+            productsToDisplay.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.classList.add('product-card');
+
+                productCard.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p>${product.description}</p>
+            <p class="price">Rp ${product.price.toLocaleString('id-ID')}</p>
+        `;
+                productListDiv.appendChild(productCard);
+            });
+        }
+
+        // Inisialisasi tampilan produk saat halaman dimuat
+        displayProducts(products);
+        // Dapatkan semua kategori unik dari data produk
+        function getUniqueCategories() {
+            const categories = products.map(product => product.category);
+            return ['all', ...new Set(categories)]; // Tambahkan 'all' untuk semua kategori
+        }
+
+        // Tambahkan opsi kategori ke dropdown filter
+        function populateCategoryFilter() {
+            const categories = getUniqueCategories();
+            categories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category;
+                option.textContent = category === 'all' ? 'Semua Kategori' : category;
+                categoryFilterSelect.appendChild(option);
+            });
+        }
+
+        // Panggil fungsi untuk mengisi filter saat halaman dimuat
+        populateCategoryFilter();
+
+        // Event listener untuk perubahan pada dropdown filter kategori
+        categoryFilterSelect.addEventListener('change', (event) => {
+            const selectedCategory = event.target.value;
+
+            if (selectedCategory === 'all') {
+                displayProducts(products); // Tampilkan semua produk jika "Semua Kategori" dipilih
+            } else {
+                const filteredProducts = products.filter(product => product.category === selectedCategory);
+                displayProducts(filteredProducts); // Tampilkan produk yang difilter
+            }
+        });
+    </script>
+</body>
+
+</html>
