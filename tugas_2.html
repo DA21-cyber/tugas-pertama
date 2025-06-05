@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Dodi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            background-color: #f7f7f7;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background-color: #007bff; /* Adjust color to match the image's blue */
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+        .header .brand {
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .header nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+        }
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px 30px;
+            background-color: #f8f9fa; /* Light blue background */
+            border-radius: 0 0 8px 8px; /* Rounded bottom corners */
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .hero-text {
+            flex: 1;
+            padding-right: 40px;
+            text-align: center;
+        }
+        .hero-text h1 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .hero-text p {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        .learn-more-btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .hero-image {
+            flex: 0 0 350px; /* Fixed width for the image container */
+            height: 250px;
+            background-color: #ccc; /* Placeholder background */
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .about-me, .portofolio {
+            text-align: center;
+            padding: 40px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .about-me h2, .portofolio h2 {
+            font-size: 28px;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        .about-me p {
+            font-size: 16px;
+            color: #777;
+            margin-bottom: 30px;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .about-item {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            font-size: 16px;
+            color: #444;
+            text-align: left;
+            text-align: center;
+        }
+        .about-item strong {
+            margin-bottom: 5px;
+            text-align: center;
+            color: #007bff; /* Blue for categories */
+        }
+        .portofolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .portofolio-item {
+            background-color: #f7f7f7;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: left;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .portofolio-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+        .portofolio-item .description {
+            padding: 15px;
+            font-size: 15px;
+            color: #333;
+            text-align: center;
+        }
+        .footer {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="brand">Brand</div>
+            <nav>
+                <a href="#header">Header</a>
+                <a href="#biodata">Biodata</a>
+                <a href="#portofolio-section">Portofolio</a>
+            </nav>
+        </div>
+
+        <div class="hero-section" id="header">
+            <div class="hero-content">
+                <h1>Selamat Datang di Website Saya</h1>
+                <p>Ini adalah contoh header dengan dua kolom. Kolom kiri berisi teks seperti ini.</p>
+                <button class="learn-more-btn">Pelajari Lebih Lanjut</button>
+            </div>
+            <div class="hero-image">
+                <img src="https://plus.unsplash.com/premium_photo-1689568126014-06fea9d5d341?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Fawzi Sayed" class="img-fluid rounded-circle profile-img shadow-lg" alt="Dodi">
+            </div>
+        </div>
+
+        <div class="about-me" id="biodata">
+            <h2>About Me</h2>
+            <p>A brief introduction about myself</p>
+            <div class="about-grid">
+                <div class="about-item">
+                    <strong>Full Name:</strong> Dodi
+                </div>
+                <div class="about-item">
+                    <strong>Education:</strong> S1 Informatika
+                </div>
+                <div class="about-item">
+                    <strong>Pekerjaan:</strong> Programmer
+                </div>
+                <div class="about-item">
+                    <strong>Contact:</strong> dodi@example.com
+                </div>
+                <div class="about-item">
+                    <strong>Hobi:</strong> Membaca, Coding
+                </div>
+                <div class="about-item">
+                    <strong>Alamat:</strong> Jakarta
+                </div>
+            </div>
+        </div>
+
+        <div class="portofolio" id="portofolio-section">
+            <h2>Portofolio</h2>
+            <div class="portofolio-grid">
+                <div class="portofolio-item">
+                    <img src="https://cdn.dribbble.com/userupload/37361777/file/original-03535088df5acc8284d2ea4ca34088e6.png?resize=1200x900&vertical=center" alt="Proyek 1">
+                    <div class="description">
+                        <p>Proyek 1</p>
+                        Deskripsi proyek 1.
+                    </div>
+                </div>
+                <div class="portofolio-item">
+                    <img src="https://cdn.dribbble.com/userupload/37418391/file/original-66fe870d4088e8bc3bf05c2a13872630.png?resize=1200x900&vertical=center" alt="Proyek 2">
+                    <div class="description">
+                        <p>Proyek 2</p>
+                        Deskripsi proyek 2.
+                    </div>
+                </div>
+                <div class="portofolio-item">
+                    <img src="https://cdn.dribbble.com/userupload/3904247/file/original-cbba7e0407972dfbdb5b555ef13aed4a.png?resize=1504x1128&vertical=center" alt="Proyek 3">
+                    <div class="description">
+                        <p>Proyek 3</p>
+                        Deskripsi proyek 3.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2024 Dodi All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
