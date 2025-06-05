@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Johan Doe - Web Developer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom CSS untuk Fawzi Sayed Portfolio */
+
+        :root {
+            --primary-color: #007bff; /* Biru utama */
+            --warning-color: #ffc107; /* Kuning (Hire Me button) */
+            --text-dark: #343a40;
+            --text-muted: #6c757d;
+            --light-bg: #f8f9fa; /* Background light */
+            --white-bg: #ffffff; /* Background putih */
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.7;
+            background-color: var(--light-bg);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .navbar {
+            background-color: var(--white-bg) !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-size: 1.7rem;
+            color: var(--text-dark) !important;
+        }
+
+        .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 600;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link.active,
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .btn-warning {
+            background-color: var(--warning-color);
+            border-color: var(--warning-color);
+            color: var(--text-dark); /* Agar teks lebih terlihat */
+            transition: all 0.3s ease;
+        }
+
+        .btn-warning:hover {
+            background-color: #e0a800;
+            border-color: #e0a800;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding-top: 100px; /* Offset for fixed navbar */
+            background-color: var(--white-bg);
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-section h2.text-primary {
+            color: var(--primary-color) !important;
+            font-size: 3rem;
+        }
+
+        .profile-img {
+            width: 350px; /* Lebar sesuai gambar */
+            height: 350px; /* Tinggi sesuai gambar */
+            object-fit: cover;
+            border: 8px solid var(--light-bg); /* Border putih di sekitar gambar */
+        }
+
+        .social-icons a {
+            color: var(--text-dark);
+            margin-right: 15px;
+            font-size: 1.4rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+
+        /* About Me Section */
+        .about-section {
+            background-color: #ffffff; /* White background for this section */
+        }
+
+        .info-card {
+            background-color: #f8f9fa; /* Light background for info cards */
+            border: 1px solid #dee2e6; /* Light border */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-card i {
+            color: #0d6efd; /* Bootstrap primary color for icons */
+        }
+
+
+        /* Projects Section */
+        .projects-section {
+            background-color: #f0f4f9; /* Slightly different background for projects */
+        }
+
+        .projects-section .btn-outline-primary {
+            border-color: #0d6efd;
+            color: #0d6efd;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .projects-section .btn-outline-primary.active,
+        .projects-section .btn-outline-primary:hover {
+            background-color: #0d6efd;
+            color: #ffffff;
+        }
+
+        .project-item .card {
+            border: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-item .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-item .card-img-top {
+            height: 200px; /* Fixed height for project images */
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* Modal Styling */
+        .modal-title {
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .modal-header {
+            border-bottom: 1px solid var(--light-bg);
+        }
+
+        .modal-footer {
+            border-top: 1px solid var(--light-bg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #343a40 !important; /* Darker footer */
+            color: #f8f9fa;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                background-color: var(--white-bg);
+                padding: 15px;
+                border-radius: 8px;
+                margin-top: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+            .navbar-nav {
+                align-items: flex-start;
+            }
+            .nav-item {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            .hero-section {
+                text-align: center;
+            }
+            .hero-section .profile-img {
+                width: 250px;
+                height: 250px;
+                margin-top: 30px;
+            }
+            .social-icons.position-absolute {
+                position: static !important;
+                margin-top: 20px;
+                display: block !important; /* Show for smaller screens */
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            .hero-section h2.text-primary {
+                font-size: 2rem;
+            }
+            .about-me-section .info-item {
+                text-align: center !important;
+            }
+            .about-me-section .info-item i {
+                display: inline-block;
+                margin-right: 10px;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .hero-section .profile-img {
+                width: 200px;
+                height: 200px;
+            }
+            .projects-section .btn-group {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .projects-section .btn-group .btn {
+                flex: 1 1 auto;
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">JOHANUX</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="#" class="btn btn-primary rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#downloadCvModal">Download CV</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-section d-flex align-items-center min-vh-100 bg-white py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 text-center text-lg-start">
+                    <p class="mb-2 fs-5">Hi, I am</p>
+                    <h1 class="display-3 fw-bold mb-3">Johan Doe</h1>
+                    <h2 class="display-4 fw-bold text-primary mb-4">Web Developer</h2>
+                    <p class="lead mb-4 pe-lg-5">Lorem ipsum dolor sit amet consectetur. Tristique amet sed massa nibh lectus pretium. Turpis tempus pharetra</p>
+                    <button class="btn btn-warning btn-lg me-3 rounded-pill" data-bs-toggle="modal" data-bs-target="#hireMeModal">Hire Me</button>
+                    <div class="social-icons mt-4 d-block d-lg-none">
+                        <a href="#" class="text-decoration-none me-3"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" class="text-decoration-none me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-decoration-none me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-decoration-none"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-5 d-flex justify-content-center justify-content-lg-end">
+                    <div class="position-relative">
+                        <img src="https://plus.unsplash.com/premium_photo-1689568126014-06fea9d5d341?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Fawzi Sayed" class="img-fluid rounded-circle profile-img shadow-lg">
+                        <div class="social-icons position-absolute bottom-0 end-0 d-none d-lg-block">
+                            <a href="#" class="text-decoration-none me-3"><i class="fab fa-facebook-f fa-lg text-dark"></i></a>
+                            <a href="#" class="text-decoration-none me-3"><i class="fab fa-twitter fa-lg text-dark"></i></a>
+                            <a href="#" class="text-decoration-none me-3"><i class="fab fa-instagram fa-lg text-dark"></i></a>
+                            <a href="#" class="text-decoration-none"><i class="fab fa-linkedin-in fa-lg text-dark"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-2">About Me</h2>
+            <p class="text-center text-muted mb-5">Lorem ipsum dolor sit amet consectetur. Tristique amet sed massa nibh lectus. Turpis tempus pharetra.</p>
+
+            <div class="row text-center g-4">
+                <div class="col-md-4">
+                    <div class="info-card p-4 rounded-3 shadow-sm h-100">
+                        <i class="fas fa-user-circle fa-2x mb-3 text-primary"></i>
+                        <h5 class="fw-bold">Full Name</h5>
+                        <p class="mb-0">Johan Doe</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="info-card p-4 rounded-3 shadow-sm h-100">
+                        <i class="fas fa-graduation-cap fa-2x mb-3 text-primary"></i>
+                        <h5 class="fw-bold">Education</h5>
+                        <p class="mb-0">Universitas Gajah Mada</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="info-card p-4 rounded-3 shadow-sm h-100">
+                        <i class="fas fa-briefcase fa-2x mb-3 text-primary"></i>
+                        <h5 class="fw-bold">Pekerjaan</h5>
+                        <p class="mb-0">Pelajar</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="info-card p-4 rounded-3 shadow-sm h-100">
+                        <i class="fas fa-envelope fa-2x mb-3 text-primary"></i>
+                        <h5 class="fw-bold">Contact</h5>
+                        <p class="mb-0">john.doe@example.com</p>
+                        <p class="mb-0">+62 878xxxxxx</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="info-card p-4 rounded-3 shadow-sm h-100">
+                        <i class="fas fa-gamepad fa-2x mb-3 text-primary"></i>
+                        <h5 class="fw-bold">Hobi</h5>
+                        <p class="mb-0">Membaca, Coding, Traveling</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="info-card p-4 rounded-3 shadow-sm h-100">
+                        <i class="fas fa-map-marker-alt fa-2x mb-3 text-primary"></i>
+                        <h5 class="fw-bold">Alamat</h5>
+                        <p class="mb-0">Jl. Mawar No. 123, Jakarta</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-section py-5 bg-white">
+        <div class="container text-center">
+            <h2 class="display-5 fw-bold mb-2">My Projects</h2>
+            <p class="lead mb-5 text-muted">Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet risus.</p>
+
+            <div class="btn-group mb-5" role="group" aria-label="Project categories">
+                <button type="button" class="btn btn-outline-primary active" data-filter="all">All</button>
+                <button type="button" class="btn btn-outline-primary" data-filter="uiux">UI/UX</button>
+                <button type="button" class="btn btn-outline-primary" data-filter="web-design">Web Design</button>
+                <button type="button" class="btn btn-outline-primary" data-filter="app-design">App Design</button>
+                <button type="button" class="btn btn-outline-primary" data-filter="graphic-design">Graphic Design</button>
+            </div>
+
+            <div class="row g-4 project-gallery">
+                <div class="col-lg-4 col-md-6 project-item web-design uiux">
+                    <div class="card shadow-sm h-100">
+                        <img src="https://cdn.dribbble.com/userupload/37361777/file/original-03535088df5acc8284d2ea4ca34088e6.png?resize=1200x900&vertical=center">
+                        <div class="card-body">
+                            <span class="badge bg-secondary mb-2">Web Design</span>
+                            <h5 class="card-title fw-bold">AirCalling Landing Page Design</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 project-item web-design">
+                    <div class="card shadow-sm h-100">
+                        <img src="https://cdn.dribbble.com/userupload/37418391/file/original-66fe870d4088e8bc3bf05c2a13872630.png?resize=1200x900&vertical=center">
+                        <div class="card-body">
+                            <span class="badge bg-secondary mb-2">Web Design</span>
+                            <h5 class="card-title fw-bold">Business Landing Page Design</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 project-item web-design graphic-design">
+                    <div class="card shadow-sm h-100">
+                        <img src="https://cdn.dribbble.com/userupload/3904247/file/original-cbba7e0407972dfbdb5b555ef13aed4a.png?resize=1504x1128&vertical=center">
+                        <div class="card-body">
+                            <span class="badge bg-secondary mb-2">Web Design</span>
+                            <h5 class="card-title fw-bold">Ecom Web Page Design</h5>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="hireMeModal" tabindex="-1" aria-labelledby="hireMeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="hireMeModalLabel">Hubungi Saya</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Silakan isi formulir di bawah ini untuk menghubungi Fawzi Sayed.</p>
+                    <form>
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label">Nama Lengkap</label>
+                            <input type="text" class="form-control" id="fullName" placeholder="Masukkan nama Anda" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="emailAddress" class="form-label">Alamat Email</label>
+                            <input type="email" class="form-control" id="emailAddress" placeholder="nama@contoh.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Subjek</label>
+                            <input type="text" class="form-control" id="subject" placeholder="Subjek pesan Anda" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Pesan</label>
+                            <textarea class="form-control" id="message" rows="5" placeholder="Tulis pesan Anda di sini..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <p class="mb-0">&copy; 2025 Johan Doe. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="js/custom.js"></script>
+</body>
+</html>
